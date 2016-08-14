@@ -1,0 +1,21 @@
+html {
+  padding: 3%;
+}
+
+h1, h3 {
+  text-align: center;
+  color: rgba(91, 10, 10, 0.98);
+  margin-top: 10%;
+}
+
+h1 {
+  border-bottom: 1.5px solid grey;
+  padding-bottom: 5%;
+}
+
+h4 {
+  margin-top: 7%;
+}
+p {
+  margin-top: 3%;
+}

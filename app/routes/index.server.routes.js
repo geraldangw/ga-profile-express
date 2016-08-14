@@ -10,6 +10,6 @@ var staticPageController = require('../controllers/staticpage.server.controller'
 //actual ROUTING, uses static page controller to render the static pages via specified routes.
 
 app.get('/', staticPageController.renderHome);
-app.get('/', staticPageController.renderAbout);
+app.get('/about', staticPageController.renderAbout);
 app.get('/contact', staticPageController.renderContact);
 };
