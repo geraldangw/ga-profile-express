@@ -11,6 +11,12 @@ var projectsController = require('../controllers/projects.server.controller');
 // requires the controller of static pages.
 
 //actual ROUTING, uses static page controller to render the static pages via specified routes.
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 
 app.get('/', staticPageController.renderHome);
 app.get('/about', staticPageController.renderAbout);
