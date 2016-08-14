@@ -1,3 +1,10 @@
 language: node_js
 node_js:
 - node
+deploy:
+  provider: heroku
+  api_key:
+    secure: ORI2xMIPD45UenWZHnf/PeNnObPs5ktGy4VBuMROtNGA2j72xZlsA7eRkYRY49eY3Juwo52bfJHR4U4o7KZNFDcVj3nxxI8Ipwd8eR1RRqZc2pDqTYb1bln7f2io0AMiEiEX+p+iKi/sGC/Rktm0LNcSwk4TqM4OpPZMUiW8gKQDJvVXuLKknJ5ExN6jNbrpqKcXnl4zaAnHKamOiN/0YsO9kJ1ICsUa8uJ/4Urzd7HD9QYNImkFi3kst1sIOD3LBnBU2G08eIoQaMoaGeburngdlBSAQYsy6kTpvCxDMlowmoB0T/hpnpPSfvjmAikdW9qp6NwLK522zi/947QUAHSGJWsaSgBVJ30mo9CFCw5U9d775tzSAoXQFPzXbPe7XNwYLTdADw6klQvYeh0rjqnfbSXE+l8/tY5p9yEE2PJW2TF4MIE7Nn91TZQUovqsshoqPEQ5zNRfRgddcM6Fy03yFn55tS9EMXu3Au0BRYjowVGlI3t7vBwXluMXfovkeuZ5QZFQyaDJl/2o1UPFis2DhhjBZK+/ByA0uAEpoUIHTUS9NaFwXIn79cvXKvwS4xCZz+LgPNtETJ7IUn2KJHC+DYhUu9s36Lt8yUNNtiNXU+AKjnfOT5gD04xrqlyqPedOQ/jaZRux1D5AG0HVmTu9RcGYqdDXfVlmI1Iauts=
+  app: polar-retreat-73705
+  on:
+    repo: geraldangw/ga-profile-express
