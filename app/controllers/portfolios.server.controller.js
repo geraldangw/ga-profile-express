@@ -8,16 +8,50 @@ module.exports = {
       res.json(portfolios);
     });
   },
+  new: function(req, res) {
+    res.render('portfolios/new', {
+      title: 'Add portfolios'
+    });
+  },
+  create: function(req, res, next) {
+    var portfolio = new Portfolio(req.body);
+    portfolio.save(function(err) {
+      if (err) return next(err);
+      res.json(portfolio);
+    });
+  },
   show: function(req, res) {
-    res.send('show routes');
+    res.json(req.portfolio);
   },
-  create: function(req, res) {
-    res.send('create routes');
+  update: function(req, res, next) {
+    Portfolio.findbyIdAndUpdate(req.portfolio.id, req.body, function(err, portfolio) {
+      if (err) {
+        return next(err);
+      } else {
+        res.json(portfolio);
+      }
+    });
   },
-  update: function(req, res) {
-    res.send('update routes');
+  destroy: function(req, res, next) {
+    req.portfolio.remove(function(err) {
+      if(err) {
+        return next(err);
+      } else {
+        res.json(req.portfolio);
+      }
+    });
   },
-  destroy: function(req, res) {
-    res.send('update routes');
+  portfolio_by_id: function(req, res, next, id) {
+    Portfolio.findOne({
+        _id: id
+      }, 'name category',
+      function(err, portfolio) {
+        if (err) {
+          return next(err);
+        } else {
+          req.user = portfolio;
+          next();
+        }
+      });
   }
 };
