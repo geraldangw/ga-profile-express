@@ -5,13 +5,16 @@ var base_url = "http://localhost:9000/";
 var about_url = base_url + 'about';
 var contact_url = base_url + 'contact';
 
+
+
 describe(" GA Profile Express Server API", function() {
-  describe("should return information json on get /details", function() {
+  describe("should return details json on get /details", function() {
       it("returns status code 200", function(done) {
         supertest(app)
           .get('/details')
           .expect('Content-Type', /json/)
           .expect(200, done);
+          done();
       });
 
       it("returns a correct json format", function(done) {
@@ -28,14 +31,16 @@ describe(" GA Profile Express Server API", function() {
                   linkedin: 'https://sg.linkedin.com/in/gerald-ang-8344463a',
                   emailme: 'mailto:geraldangw@gmail.com'
                 }, done);
+                done();
       });
   });
-  describe("should return information json on get /portfolios", function() {
+  describe("should return information json on get /projects", function() {
       it("returns status code 200", function(done) {
         supertest(app)
           .get('/portfolios')
           .expect('Content-Type', /json/)
           .expect(200, done);
+          done();
       });
 
       it("returns a correct json format", function(done) {
@@ -78,6 +83,7 @@ describe(" GA Profile Express Server API", function() {
               image: 'https://scontent-sit4-1.xx.fbcdn.net/t31.0-8/13958151_10154898865970639_7060651853364951691_o.jpg'
             }
           ], done);
+          done();
       });
   });
 });
@@ -90,29 +96,30 @@ describe("Express Server Front end", function() {
       .set('Accept', 'text/html')
       .expect('Content-Type', /html/)
       .expect(200, done); // note that we're passing the done as parameter to the expect
+      done();
     });
   });
 
-  describe("GET /about", function() {
-  it("returns status code 200", function(done) {
-    request.get(base_url + 'about',
-      function(err, response, body) {
-        expect(response.statusCode).toBe(200);
+    describe("GET /about", function() {
+      it("returns status code 200", function(done) {
+        supertest(app)
+        .get('/about')
+        .set('Accept', 'text/html')
+        .expect('Content-Type', /html/)
+        .expect(200, done); // note that we're passing the done as parameter to the expect
         done();
-      }
-    );
-  });
-});
+      });
+    });
 
-describe("GET /contact", function() {
-  it("returns status code 200", function(done) {
-    request.get(base_url + 'contact',
-      function(err, response, body) {
-        expect(response.statusCode).toBe(200);
-        done();
-      }
-    );
-  });
-});
+      describe("GET /contact", function() {
+        it("returns status code 200", function(done) {
+          supertest(app)
+          .get('/contact')
+          .set('Accept', 'text/html')
+          .expect('Content-Type', /html/)
+          .expect(200, done); // note that we're passing the done as parameter to the expect
+          done();
+        });
+      });
 
 });
