@@ -29,6 +29,8 @@ module.exports = function() {
   app.use(expressLayouts);
 
   require('../app/routes/index.server.routes')(app); //require the routes indicated by index.server.routes for the app to function as the next flow.
+  require('../app/routes/detail.server.routes')(app);
+  require('../app/routes/portfolio.server.routes')(app);
 
   app.use(express.static('./public')); // links public folder w assets.
 
