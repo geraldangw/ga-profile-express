@@ -6,17 +6,17 @@ var about_url = base_url + 'about';
 var contact_url = base_url + 'contact';
 
 describe(" GA Profile Express Server API", function() {
-  describe("should return information json on get /information", function() {
+  describe("should return information json on get /details", function() {
       it("returns status code 200", function(done) {
         supertest(app)
-          .get('/information')
+          .get('/details')
           .expect('Content-Type', /json/)
           .expect(200, done);
       });
 
       it("returns a correct json format", function(done) {
         supertest(app)
-          .get('/information')
+          .get('/details')
           .expect({
                   name: 'Gerald Ang',
                   age: 33,
@@ -30,17 +30,17 @@ describe(" GA Profile Express Server API", function() {
                 }, done);
       });
   });
-  describe("should return information json on get /projects", function() {
+  describe("should return information json on get /portfolios", function() {
       it("returns status code 200", function(done) {
         supertest(app)
-          .get('/projects')
+          .get('/portfolios')
           .expect('Content-Type', /json/)
           .expect(200, done);
       });
 
       it("returns a correct json format", function(done) {
         supertest(app)
-          .get('/projects')
+          .get('/portfolios')
           .expect([
             {
               name: 'Tic Tac Toe',
