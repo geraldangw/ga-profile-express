@@ -1,3 +1,3 @@
 module.exports = {
-  db: 'mongodb://heroku_szkdrf0q:admin1234@ds161245.mlab.com:61245/heroku_szkdrf0q', // diff url for heroku
+  db: 'mongodb://geraldangw:admin1234@ds161295.mlab.com:61295/heroku_zkzdp50c', // diff url for heroku
 };
