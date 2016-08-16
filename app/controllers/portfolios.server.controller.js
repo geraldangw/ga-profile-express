@@ -4,7 +4,6 @@ module.exports = {
   index: function(req, res, next) {
     Portfolio.find({}, function(err, portfolios) {
       if (err) return next(err);
-      res.status(404);
       res.json(portfolios);
     });
   },
